@@ -82,6 +82,34 @@
       color: var(--brand-yellow-hover);
     }
 
+    /* Team photo placeholders */
+    .team-photo-placeholder {
+      background: var(--brand-yellow-light);
+      border: 2px dashed var(--brand-yellow);
+      border-radius: var(--radius-lg);
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .team-photo-placeholder .material-icons-outlined {
+      font-size: 48px;
+      color: var(--brand-yellow-hover);
+      opacity: 0.6;
+    }
+
+    .team-photo-placeholder p {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brand-yellow-hover);
+      margin: 0;
+      opacity: 0.8;
+    }
+
     /* Ensure two-col text has good spacing */
     .two-col-layout p:last-child {
       margin-bottom: 0;
@@ -137,8 +165,9 @@
   <section class="cream">
     <div class="container">
       <div class="two-col-layout">
-        <div class="team-image">
-          <img src="images/08-hands-meeting-documents.jpg" alt="Lindy Harris — photo placeholder">
+        <div class="team-photo-placeholder">
+          <span class="material-icons-outlined">photo_camera</span>
+          <p>Lindy's photo goes here</p>
         </div>
         <div>
           <p class="section-label">Meet Lindy</p>
@@ -164,8 +193,9 @@
           <p class="tbc">Jeanette works alongside Lindy on every transaction. [TBC — confirm with Lindy: Jeanette's background, how long she's been with Aspect, her qualifications, and what she specialises in or handles day-to-day]</p>
           <p>Between the two of them, there's very little they haven't seen. Having a two-person team means your file is always being looked after by someone who actually knows your situation. You won't need to re-explain yourself every time you call.</p>
         </div>
-        <div class="team-image">
-          <img src="images/07-documents-desk-flatlay.jpg" alt="Jeanette — photo placeholder">
+        <div class="team-photo-placeholder">
+          <span class="material-icons-outlined">photo_camera</span>
+          <p>Jeanette's photo goes here</p>
         </div>
       </div>
     </div>
