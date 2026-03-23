@@ -7,13 +7,119 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="homepage.css">
+  <style>
+    /* ===== FAQ PAGE STYLES ===== */
+
+    /* Jump link tags */
+    .faq-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .faq-tag {
+      padding: 8px 20px;
+      border-radius: 100px;
+      background: var(--brand-yellow-light);
+      color: var(--brand-dark);
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(242,183,5,0.2);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .faq-tag:hover {
+      background: var(--brand-yellow);
+      border-color: var(--brand-yellow);
+    }
+
+    /* FAQ items */
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .faq-item p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .faq-item a {
+      color: var(--brand-yellow-hover);
+      font-weight: 500;
+    }
+
+    .faq-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Image break */
+    .image-break {
+      padding: 0;
+      overflow: hidden;
+      max-height: 360px;
+    }
+
+    .image-break img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .faq-tags {
+        gap: 8px;
+      }
+
+      .faq-tag {
+        font-size: 13px;
+        padding: 6px 16px;
+      }
+
+      .faq-item {
+        padding: 28px 0;
+      }
+
+      .faq-item h3 {
+        font-size: 18px;
+      }
+
+      .image-break,
+      .image-break img {
+        height: 240px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation -->
   <nav>
-    <a href="/" class="logo"><img src="aspect-logo.webp" alt="Aspect Conveyancing" style="height: 40px;"></a>
+    <a href="/" class="logo"><img src="aspect-logo.webp" alt="Aspect Conveyancing"></a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
@@ -24,8 +130,11 @@
     </ul>
   </nav>
 
-  <!-- Page Header -->
-  <section class="hero" style="padding: 56px 24px;">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/20-hands-exchanging-keys.jpg" alt="Hands exchanging house keys">
+    </div>
     <div class="container">
       <p class="section-label">Frequently Asked Questions</p>
       <h1>Good questions deserve straight answers</h1>
@@ -33,113 +142,123 @@
     </div>
   </section>
 
-  <!-- FAQ Jump Links -->
-  <section style="padding: 24px 0 0;">
+  <!-- Jump Links -->
+  <section class="cream" style="padding: 48px 24px;">
     <div class="container" style="max-width: 860px;">
-      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-        <a href="#what-conveyancer-does" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">What a conveyancer does</a>
-        <a href="#do-i-need-one" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Do I need one?</a>
-        <a href="#conveyancer-vs-solicitor" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Conveyancer vs solicitor</a>
-        <a href="#cost" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Costs</a>
-        <a href="#settlement-time" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Settlement timeline</a>
-        <a href="#form-1" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Form 1</a>
-        <a href="#first-home-buyer" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">First home buyers</a>
-        <a href="#grants" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Grants &amp; concessions</a>
-        <a href="#settlement-day" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Settlement day</a>
-        <a href="#buying-and-selling" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Buying &amp; selling</a>
-        <a href="#family-transfer-faq" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Family transfers</a>
-        <a href="#areas" class="btn btn-outline" style="font-size: 14px; padding: 8px 16px;">Areas we cover</a>
+      <div class="faq-tags">
+        <a href="#what-conveyancer-does" class="faq-tag">What a conveyancer does</a>
+        <a href="#do-i-need-one" class="faq-tag">Do I need one?</a>
+        <a href="#conveyancer-vs-solicitor" class="faq-tag">Conveyancer vs solicitor</a>
+        <a href="#cost" class="faq-tag">Costs</a>
+        <a href="#settlement-time" class="faq-tag">Settlement timeline</a>
+        <a href="#form-1" class="faq-tag">Form 1</a>
+        <a href="#first-home-buyer" class="faq-tag">First home buyers</a>
+        <a href="#grants" class="faq-tag">Grants &amp; concessions</a>
+        <a href="#settlement-day" class="faq-tag">Settlement day</a>
+        <a href="#buying-and-selling" class="faq-tag">Buying &amp; selling</a>
+        <a href="#family-transfer-faq" class="faq-tag">Family transfers</a>
+        <a href="#areas" class="faq-tag">Areas we cover</a>
       </div>
     </div>
   </section>
 
   <!-- FAQ Items -->
-  <section>
-    <div class="container" style="max-width: 860px;">
+  <section style="padding: 64px 24px 80px;">
+    <div class="container">
+      <div class="faq-list">
 
-      <div class="faq-item" id="what-conveyancer-does">
-        <h3>What does a conveyancer actually do?</h3>
-        <p>A conveyancer handles the legal and administrative side of buying, selling, or transferring property. That includes reviewing contracts, conducting title and property searches, coordinating with banks and the other party's representatives, preparing settlement documents, and making sure everything complies with South Australian property law.</p>
-        <p>In short: we do the paperwork and compliance so you don't have to worry about it.</p>
+        <div class="faq-item" id="what-conveyancer-does">
+          <h3>What does a conveyancer actually do?</h3>
+          <p>A conveyancer handles the legal and administrative side of buying, selling, or transferring property. That includes reviewing contracts, conducting title and property searches, coordinating with banks and the other party's representatives, preparing settlement documents, and making sure everything complies with South Australian property law.</p>
+          <p>In short: we do the paperwork and compliance so you don't have to worry about it.</p>
+        </div>
+
+        <div class="faq-item" id="do-i-need-one">
+          <h3>Do I actually need a conveyancer? Is it required by law?</h3>
+          <p>It's not legally required in South Australia, but it's strongly recommended. Property transactions involve binding legal contracts, and getting something wrong can be expensive to fix. Most real estate agents, brokers, and banks will recommend you use one.</p>
+          <p>Think of it this way: you could do your own plumbing too, but there's a reason most people don't.</p>
+        </div>
+
+        <div class="faq-item" id="conveyancer-vs-solicitor">
+          <h3>What's the difference between a conveyancer and a solicitor?</h3>
+          <p>Both can handle property transactions in South Australia. A solicitor is a qualified lawyer who can also do conveyancing as part of a broader legal practice. A conveyancer is a specialist. It's all we do, every day.</p>
+          <p>For standard residential property transactions, a conveyancer is usually the right fit. If your transaction involves complex legal disputes or litigation, a solicitor might be more appropriate. We're happy to point you in the right direction if that's the case.</p>
+        </div>
+
+        <div class="faq-item" id="cost">
+          <h3>How much does conveyancing cost?</h3>
+          <p class="tbc">[TBC — confirm with Lindy: fee structure. Does Aspect charge a flat fee, hourly, or per-transaction? Is there a standard quote for a straightforward purchase? Are disbursements (title searches, certificates) on top?]</p>
+          <p>We're upfront about our fees. When you get in touch, we'll give you a clear quote based on your specific situation, with no hidden costs.</p>
+        </div>
+
+        <div class="faq-item" id="settlement-time">
+          <h3>How long does settlement take?</h3>
+          <p>In South Australia, settlement typically takes around 30 to 60 days from when contracts are signed, though this depends on what's agreed in the contract. Some transactions settle faster, and some take longer. This is especially true if there's finance involved or conditions that need to be met first.</p>
+          <p>We'll give you a clear timeline once we've reviewed your contract, and we'll keep you updated if anything changes along the way.</p>
+        </div>
+
+        <div class="faq-item" id="form-1">
+          <h3>What is a Form 1?</h3>
+          <p>A Form 1 (also called a Vendor's Statement) is a document that sellers in South Australia are legally required to provide to buyers. It discloses key information about the property, including the title details, any encumbrances (such as easements or caveats), council and water rates, and planning information.</p>
+          <p>The Form 1 gives the buyer a cooling-off period. If it's not prepared correctly or information is missing, the buyer can void the contract. That's why it's worth having a conveyancer prepare it properly. <a href="/services#form-1">More about our Form 1 service</a></p>
+        </div>
+
+        <div class="faq-item" id="first-home-buyer">
+          <h3>I'm a first home buyer. Where do I start?</h3>
+          <p>Start by getting your finances sorted with a broker or your bank, so you know what you can afford. Then start looking. Once you've found a place and want to make an offer (or have had one accepted), that's when you get in touch with us.</p>
+          <p>We'll review the contract before you sign anything, explain what all the terms mean, and handle everything from there through to settlement. If you want to chat before you've even started looking, that's fine too. We're happy to walk you through what the process looks like so you know what to expect.</p>
+        </div>
+
+        <div class="faq-item" id="grants">
+          <h3>Are there grants or concessions for first home buyers in SA?</h3>
+          <p>Yes. South Australia offers a First Home Owner Grant (currently $15,000 for new homes) and stamp duty concessions for first home buyers. Eligibility depends on the property value and your circumstances.</p>
+          <p class="tbc">[TBC — confirm with Lindy: does Aspect advise on grant eligibility, or do they refer to the broker/Revenue SA? Confirm current grant amount is still $15,000 as of 2026.]</p>
+          <p>Your broker or bank can help with the specifics of what you qualify for. We'll make sure the conveyancing side is set up correctly to support any concessions you're entitled to.</p>
+        </div>
+
+        <div class="faq-item" id="settlement-day">
+          <h3>What happens on settlement day?</h3>
+          <p>Settlement is when ownership of the property officially transfers. In practice, it's mostly a behind-the-scenes process. Funds are transferred, documents are lodged with Land Services SA, and the title is updated.</p>
+          <p>If you're buying, settlement day is when you get the keys. If you're selling, it's when you get paid. We coordinate with the bank, the other party's conveyancer, and Land Services SA. We'll let you know as soon as it's done.</p>
+          <p>Most settlements in SA now happen electronically through PEXA, which means they're faster and more reliable than the old paper-based process.</p>
+        </div>
+
+        <div class="faq-item" id="buying-and-selling">
+          <h3>Can you help if I'm buying and selling at the same time?</h3>
+          <p>Absolutely. This is common, and the main thing to get right is the timing. You want your sale to settle before (or at the same time as) your purchase so the funds are available. We'll coordinate both transactions and keep an eye on the settlement dates to make sure everything lines up.</p>
+          <p>If you're in this situation, get in touch early. The more notice we have, the easier it is to manage the timing.</p>
+        </div>
+
+        <div class="faq-item" id="family-transfer-faq">
+          <h3>Do I need a conveyancer for a family transfer?</h3>
+          <p>Yes. Even though no money might be changing hands, the legal requirements are essentially the same as a regular property sale. The transfer documents need to be prepared correctly, stamp duty needs to be assessed (there may be exemptions depending on your circumstances), and the title needs to be updated with Land Services SA.</p>
+          <p>We handle family transfers regularly, including separations, adding or removing names, inheritance arrangements, and estate planning. <a href="/services#family-transfers">More about family transfers</a></p>
+        </div>
+
+        <div class="faq-item" id="areas">
+          <h3>What areas do you cover?</h3>
+          <p>We're based in Prospect and work with clients across the Adelaide metropolitan area and greater South Australia. Conveyancing is largely done electronically now, so location isn't a barrier. We're always happy to meet in person if you'd prefer.</p>
+        </div>
+
       </div>
-
-      <div class="faq-item" id="do-i-need-one">
-        <h3>Do I actually need a conveyancer? Is it required by law?</h3>
-        <p>It's not legally required in South Australia, but it's strongly recommended. Property transactions involve binding legal contracts, and getting something wrong can be expensive to fix. Most real estate agents, brokers, and banks will recommend you use one.</p>
-        <p>Think of it this way: you could do your own plumbing too, but there's a reason most people don't.</p>
-      </div>
-
-      <div class="faq-item" id="conveyancer-vs-solicitor">
-        <h3>What's the difference between a conveyancer and a solicitor?</h3>
-        <p>Both can handle property transactions in South Australia. A solicitor is a qualified lawyer who can also do conveyancing as part of a broader legal practice. A conveyancer is a specialist. It's all we do, every day.</p>
-        <p>For standard residential property transactions, a conveyancer is usually the right fit. If your transaction involves complex legal disputes or litigation, a solicitor might be more appropriate. We're happy to point you in the right direction if that's the case.</p>
-      </div>
-
-      <div class="faq-item" id="cost">
-        <h3>How much does conveyancing cost?</h3>
-        <p class="tbc">[TBC — confirm with Lindy: fee structure. Does Aspect charge a flat fee, hourly, or per-transaction? Is there a standard quote for a straightforward purchase? Are disbursements (title searches, certificates) on top?]</p>
-        <p>We're upfront about our fees. When you get in touch, we'll give you a clear quote based on your specific situation, with no hidden costs.</p>
-      </div>
-
-      <div class="faq-item" id="settlement-time">
-        <h3>How long does settlement take?</h3>
-        <p>In South Australia, settlement typically takes around 30 to 60 days from when contracts are signed, though this depends on what's agreed in the contract. Some transactions settle faster, and some take longer. This is especially true if there's finance involved or conditions that need to be met first.</p>
-        <p>We'll give you a clear timeline once we've reviewed your contract, and we'll keep you updated if anything changes along the way.</p>
-      </div>
-
-      <div class="faq-item" id="form-1">
-        <h3>What is a Form 1?</h3>
-        <p>A Form 1 (also called a Vendor's Statement) is a document that sellers in South Australia are legally required to provide to buyers. It discloses key information about the property, including the title details, any encumbrances (such as easements or caveats), council and water rates, and planning information.</p>
-        <p>The Form 1 gives the buyer a cooling-off period. If it's not prepared correctly or information is missing, the buyer can void the contract. That's why it's worth having a conveyancer prepare it properly. <a href="/services#form-1">More about our Form 1 service</a></p>
-      </div>
-
-      <div class="faq-item" id="first-home-buyer">
-        <h3>I'm a first home buyer. Where do I start?</h3>
-        <p>Start by getting your finances sorted with a broker or your bank, so you know what you can afford. Then start looking. Once you've found a place and want to make an offer (or have had one accepted), that's when you get in touch with us.</p>
-        <p>We'll review the contract before you sign anything, explain what all the terms mean, and handle everything from there through to settlement. If you want to chat before you've even started looking, that's fine too. We're happy to walk you through what the process looks like so you know what to expect.</p>
-      </div>
-
-      <div class="faq-item" id="grants">
-        <h3>Are there grants or concessions for first home buyers in SA?</h3>
-        <p>Yes. South Australia offers a First Home Owner Grant (currently $15,000 for new homes) and stamp duty concessions for first home buyers. Eligibility depends on the property value and your circumstances.</p>
-        <p class="tbc">[TBC — confirm with Lindy: does Aspect advise on grant eligibility, or do they refer to the broker/Revenue SA? Confirm current grant amount is still $15,000 as of 2026.]</p>
-        <p>Your broker or bank can help with the specifics of what you qualify for. We'll make sure the conveyancing side is set up correctly to support any concessions you're entitled to.</p>
-      </div>
-
-      <div class="faq-item" id="settlement-day">
-        <h3>What happens on settlement day?</h3>
-        <p>Settlement is when ownership of the property officially transfers. In practice, it's mostly a behind-the-scenes process. Funds are transferred, documents are lodged with Land Services SA, and the title is updated.</p>
-        <p>If you're buying, settlement day is when you get the keys. If you're selling, it's when you get paid. We coordinate with the bank, the other party's conveyancer, and Land Services SA. We'll let you know as soon as it's done.</p>
-        <p>Most settlements in SA now happen electronically through PEXA, which means they're faster and more reliable than the old paper-based process.</p>
-      </div>
-
-      <div class="faq-item" id="buying-and-selling">
-        <h3>Can you help if I'm buying and selling at the same time?</h3>
-        <p>Absolutely. This is common, and the main thing to get right is the timing. You want your sale to settle before (or at the same time as) your purchase so the funds are available. We'll coordinate both transactions and keep an eye on the settlement dates to make sure everything lines up.</p>
-        <p>If you're in this situation, get in touch early. The more notice we have, the easier it is to manage the timing.</p>
-      </div>
-
-      <div class="faq-item" id="family-transfer-faq">
-        <h3>Do I need a conveyancer for a family transfer?</h3>
-        <p>Yes. Even though no money might be changing hands, the legal requirements are essentially the same as a regular property sale. The transfer documents need to be prepared correctly, stamp duty needs to be assessed (there may be exemptions depending on your circumstances), and the title needs to be updated with Land Services SA.</p>
-        <p>We handle family transfers regularly, including separations, adding or removing names, inheritance arrangements, and estate planning. <a href="/services#family-transfers">More about family transfers</a></p>
-      </div>
-
-      <div class="faq-item" id="areas">
-        <h3>What areas do you cover?</h3>
-        <p>We're based in Prospect and work with clients across the Adelaide metropolitan area and greater South Australia. Conveyancing is largely done electronically now, so location isn't a barrier. We're always happy to meet in person if you'd prefer.</p>
-      </div>
-
     </div>
   </section>
 
+  <!-- Image Break -->
+  <div class="image-break">
+    <img src="images/13-couple-moving-boxes-laughing.jpg" alt="Couple laughing while moving boxes into their new home">
+  </div>
+
   <!-- CTA Banner -->
-  <section class="dark cta-banner">
+  <section class="cta-banner cta-with-image">
+    <div class="section-bg">
+      <img src="images/16-woman-unpacking-boxes.jpg" alt="Woman unpacking boxes in new home">
+    </div>
     <div class="container">
       <h2>Still have questions?</h2>
       <p>Call Lindy or fill out the form. No question is too basic. We'd rather you asked than guessed.</p>
       <div class="btn-group" style="justify-content: center;">
-        <a href="/contact" class="btn btn-light">Ask Us Anything</a>
+        <a href="/contact" class="btn">Ask Us Anything</a>
         <a href="tel:0409440602" class="btn btn-outline">Call 0409 440 602</a>
       </div>
     </div>
